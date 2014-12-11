@@ -96,6 +96,7 @@ public class WaiterUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
    public void showTableScreen(int tableID){
+       restaurantController.setCurrentTableID(tableID);
        WaiterTableScreen tableScreen = new WaiterTableScreen(tableID,this);
        currentTableScreen = tableScreen;
        setContentPane(currentTableScreen);
@@ -138,6 +139,9 @@ public class WaiterUI extends javax.swing.JFrame {
     
     public int getStatusOfTable(int tableID){
         return 0;
+    }
+    public Table getTable(int id){
+        return restaurantController.getTable(id);
     }
    
 }

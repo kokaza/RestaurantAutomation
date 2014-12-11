@@ -33,7 +33,7 @@ public class RestaurantController {
     }
     
     public void createOrder(){
-        orderManager.createOrder(currentTableID);
+        currentOrderID = orderManager.createOrder(currentTableID);
     }
     
     public void submitOrderToSystem(){
@@ -100,5 +100,9 @@ public class RestaurantController {
         ArrayList<MenuItem> temp = new ArrayList<>();
         temp = this.orderManager.getItemsOfCategory(category);
         return temp;
+    }
+    
+    public void setCurrentTableID(int tableID){
+        this.currentTableID = tableID;
     }
 }

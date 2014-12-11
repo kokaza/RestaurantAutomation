@@ -16,6 +16,7 @@ public class OrderManager {
     private ArrayList<Order> orderList;
     private OrderQueue orderQueue;
     private MenuHandler menuHandler;
+    private Order currentOrder;
     //this keeps track of the number of orders so that orderIDs can be assigned
     private int orderCount;
     
@@ -27,11 +28,12 @@ public class OrderManager {
         this.orderCount= 1;
     }
     
-    public void createOrder(int tableID){
+    public int createOrder(int tableID){
         Order order = new Order(tableID, orderCount);
         orderCount++;
         setCurrentOrder(order);
         addOrderToList(order);
+        return order.getOrderID();
     }
     
     public void addOrderToList(Order order){
@@ -47,7 +49,7 @@ public class OrderManager {
     }
     
     public void setCurrentOrder(Order order){
-        
+        currentOrder = order;
     }
     
     public void submitCurrentOrder(){

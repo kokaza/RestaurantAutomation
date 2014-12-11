@@ -19,7 +19,12 @@ public class TableManager {
     public TableManager(){
         
         tableList = new ArrayList<>();
-        tableList.add(new Table());
+        for(int i =1;i<11;i++){
+            Table temp = new Table(i);
+            tableList.add(temp);
+            //System.out.println(temp.toString());
+        }
+        tableList.get(4).setTableStatus("DIRTY");
         currentTable = null;
     }
     
@@ -35,7 +40,11 @@ public class TableManager {
         //return the table from the tableList with the specified tableID
         
         //this is temporary
-        Table table = new Table();
-        return table;
+        for(int i =0;i<tableList.size();i++){
+            if(tableList.get(i).getTableID()== tableID){
+                return tableList.get(i);
+            }
+        }
+        return null;
     }
 }

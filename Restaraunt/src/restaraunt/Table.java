@@ -25,11 +25,26 @@ public class Table {
         tableID = -1;
     }
     
+    public Table(int id){
+        orderList = new ArrayList<Order>();
+        status = "OPEN";
+        tableID = id;
+    }
+    
     public int getTableID(){
         return tableID;
     }
     
     public String getStatus(){
-        return status;
+        return this.status;
+    }
+    
+    public void setTableStatus(String status){
+        this.status = status;
+    }
+    
+    public String toString(){
+        
+        return status+" "+tableID;
     }
 }

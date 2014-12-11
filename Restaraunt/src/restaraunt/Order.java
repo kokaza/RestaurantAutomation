@@ -77,4 +77,8 @@ public class Order {
     public String toString() {
         return status + "(Table " + tableID + ") (Order " + orderID + ")";
     }
+    
+    public int getOrderID(){
+        return orderID;
+    }
 }

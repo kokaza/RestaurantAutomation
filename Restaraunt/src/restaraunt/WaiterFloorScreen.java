@@ -223,6 +223,49 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initTableButtons() {
-        //btnTable1.setTable();
+        
+        Table table = new Table();
+        //System.out.println(table.getStatus());
+        table = waiterUI.getTable(1);
+        btnTable1.setTable(table);
+        System.out.println(table);
+        btnTable1.changeColor();
+        
+        table = waiterUI.getTable(2);
+        btnTable2.setTable(table);
+        btnTable2.changeColor();
+        
+        table = waiterUI.getTable(3);
+        btnTable3.setTable(table);
+        btnTable3.changeColor();
+        
+        table = waiterUI.getTable(4);
+        btnTable4.setTable(table);
+        btnTable4.changeColor();
+        
+        table = waiterUI.getTable(5);
+        btnTable5.setTable(table);
+        btnTable5.changeColor();
+        
+        table = waiterUI.getTable(6);
+        btnTable6.setTable(table);
+        btnTable6.changeColor();
+        
+        table = waiterUI.getTable(7);
+        btnTable7.setTable(table);
+        btnTable7.changeColor();
+        
+        table = waiterUI.getTable(8);
+        btnTable8.setTable(table);
+        btnTable8.changeColor();
+        
+        table = waiterUI.getTable(9);
+        btnTable9.setTable(table);
+        btnTable9.changeColor();
+        
+        table = waiterUI.getTable(10);
+        btnTable10.setTable(table);
+        btnTable10.changeColor();
+        
     }
 }
