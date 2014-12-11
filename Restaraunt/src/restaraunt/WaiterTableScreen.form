@@ -39,14 +39,24 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="btnAddItem" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="btnBack" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblPromptStatus" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="449" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblStatus" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace pref="410" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnAddItem" max="32767" attributes="0"/>
+                      <Component id="cbChangeStatus" max="32767" attributes="0"/>
+                      <Component id="btnChangeStatus" pref="160" max="32767" attributes="0"/>
+                      <Component id="btnSubmitOrder" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -56,10 +66,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="157" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblPromptStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbChangeStatus" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnChangeStatus" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnAddItem" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnSubmitOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="206" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,9 +92,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblPromptStatus">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Table Status"/>
+            <Property name="text" type="java.lang.String" value="Table Status:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddItem">
@@ -84,6 +103,39 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddItemActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="status"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbChangeStatus">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnChangeStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Change Table Status"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeStatusActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSubmitOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Submit Order"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitOrderActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

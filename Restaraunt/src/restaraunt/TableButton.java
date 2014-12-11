@@ -5,6 +5,7 @@
  */
 package restaraunt;
 
+import java.awt.Color;
 import javax.swing.JButton;
 
 /**
@@ -17,11 +18,18 @@ public class TableButton extends JButton{
     
     public TableButton(){
         super();
-        //this.table = table;
+        this.table = new Table();
+        changeColor();
     }
     
     public void changeColor(){
-         
+         switch(table.getStatus()){
+             
+             case "OPEN": setBackground(Color.GREEN);break;
+             case "OCCUPIED": setBackground(Color.YELLOW);break;
+             case "DIRTY": setBackground(Color.RED);break;
+   
+         }
     }
     
     public int getTableID(){

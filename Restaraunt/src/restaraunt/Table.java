@@ -28,4 +28,8 @@ public class Table {
     public int getTableID(){
         return tableID;
     }
+    
+    public String getStatus(){
+        return status;
+    }
 }

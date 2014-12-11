@@ -30,16 +30,16 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        restaraunt.TableButton btnTable1 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable2 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable3 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable4 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable5 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable6 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable7 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable8 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable9 = new restaraunt.TableButton();
-        restaraunt.TableButton btnTable10 = new restaraunt.TableButton();
+        btnTable1 = new restaraunt.TableButton();
+        btnTable2 = new restaraunt.TableButton();
+        btnTable3 = new restaraunt.TableButton();
+        btnTable4 = new restaraunt.TableButton();
+        btnTable5 = new restaraunt.TableButton();
+        btnTable6 = new restaraunt.TableButton();
+        btnTable7 = new restaraunt.TableButton();
+        btnTable8 = new restaraunt.TableButton();
+        btnTable9 = new restaraunt.TableButton();
+        btnTable10 = new restaraunt.TableButton();
 
         btnTable1.setText("Table 1");
         btnTable1.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +210,16 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private restaraunt.TableButton btnTable1;
+    private restaraunt.TableButton btnTable10;
+    private restaraunt.TableButton btnTable2;
+    private restaraunt.TableButton btnTable3;
+    private restaraunt.TableButton btnTable4;
+    private restaraunt.TableButton btnTable5;
+    private restaraunt.TableButton btnTable6;
+    private restaraunt.TableButton btnTable7;
+    private restaraunt.TableButton btnTable8;
+    private restaraunt.TableButton btnTable9;
     // End of variables declaration//GEN-END:variables
 
     private void initTableButtons() {

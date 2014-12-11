@@ -13,18 +13,21 @@ import java.util.ArrayList;
  */
 public class WaiterUI extends javax.swing.JFrame {
 
-    private RestaurantController controller;
+    private RestaurantController restaurantController;
     private WaiterFloorScreen floorScreen;
     private WaiterTableScreen currentTableScreen;
     private WaiterAddItemScreen addItemScreen;
+    
+    private TableButton currentTableButton;
     /**
      * Creates new form WaiterUI
      */
     public WaiterUI(RestaurantController controller) {
         //initComponents();
-        floorScreen = new WaiterFloorScreen(this);
-        addItemScreen = new WaiterAddItemScreen(this);
-        this.controller = controller;
+        this.restaurantController = controller;
+        this.floorScreen = new WaiterFloorScreen(this);
+        this.addItemScreen = new WaiterAddItemScreen(this);
+        //System.out.println(restaurantController.toString());
         setContentPane(floorScreen);
         pack();
     }
@@ -93,7 +96,7 @@ public class WaiterUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
    public void showTableScreen(int tableID){
-       WaiterTableScreen tableScreen = new WaiterTableScreen(controller.getTable(tableID),this);
+       WaiterTableScreen tableScreen = new WaiterTableScreen(tableID,this);
        currentTableScreen = tableScreen;
        setContentPane(currentTableScreen);
        pack();
@@ -119,12 +122,18 @@ public class WaiterUI extends javax.swing.JFrame {
        pack();
    }
    
-   public void getMenuCategories(){
-       this.controller.getMenuCategories();
+   public ArrayList<String> getMenuCategories(){
+       return this.restaurantController.getMenuCategories();
    }
 
     public RestaurantController getController() {
-        return controller;
+        return this.restaurantController;
+    }
+    
+    public ArrayList<MenuItem> getItemsOfCategory(String category){
+        ArrayList<MenuItem> temp = new ArrayList<>();
+        temp = this.restaurantController.getItemsOfCategory(category);
+        return temp;
     }
    
 }

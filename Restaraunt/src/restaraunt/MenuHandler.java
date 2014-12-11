@@ -88,6 +88,14 @@ public class MenuHandler {
         this.menuCategories = menuCategories;
     }
     
-    
+    public ArrayList<MenuItem> getItemsOfCategory(String category){
+        ArrayList<MenuItem> temp = new ArrayList<>();
+        for(int i =0; i < menuItems.size();i++){
+            if(menuItems.get(i).getMenuItemCategory().equals(category)){
+                temp.add(menuItems.get(i));
+            }
+        }
+        return temp;
+    }
     
 }

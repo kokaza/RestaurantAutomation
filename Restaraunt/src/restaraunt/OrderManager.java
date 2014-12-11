@@ -69,5 +69,9 @@ public class OrderManager {
     public MenuHandler getMenuHandler() {
         return menuHandler;
     }
-    
+    public ArrayList<MenuItem> getItemsOfCategory(String category){
+        ArrayList<MenuItem> temp = new ArrayList<>();
+        temp = this.menuHandler.getItemsOfCategory(category);
+        return temp;
+    }
 }

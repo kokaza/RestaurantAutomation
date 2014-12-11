@@ -66,4 +66,7 @@ public class MenuItem {
         this.menuItemCategory = menuItemCategory;
     }
     
+    public String toString(){
+        return this.menuItemName;
+    }
 }

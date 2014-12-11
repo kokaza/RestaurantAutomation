@@ -92,5 +92,13 @@ public class RestaurantController {
     public OrderManager getOrderManager() {
         return orderManager;
     }
-    
+
+    public String getCurrentCategory() {
+        return currentCategory;
+    }
+    public ArrayList<MenuItem> getItemsOfCategory(String category){
+        ArrayList<MenuItem> temp = new ArrayList<>();
+        temp = this.orderManager.getItemsOfCategory(category);
+        return temp;
+    }
 }

@@ -21,6 +21,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         this.waiterUI = waiterUI;
         initComponents();
         initCategories();
+        initItems();
     }
 
     /**
@@ -187,9 +188,22 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
 
     public void initCategories() {
         waiterUI.getController();
-        waiterUI.getController().getOrderManager();
-        waiterUI.getController().getOrderManager().getMenuHandler();
-        waiterUI.getController().getOrderManager().getMenuHandler().getMenuCategories();
+        ArrayList<String> temp = waiterUI.getMenuCategories();
         cbCategory.removeAllItems();
+        for(int i =0; i <temp.size();i++){
+            cbCategory.addItem(temp.get(i));
+        }
+    }
+    //this populates the items combobox with items from the chosen category
+    public void initItems(){
+        String currentCategory = cbCategory.getSelectedItem().toString();
+        System.out.println(currentCategory);
+        ArrayList<MenuItem> tempItems = waiterUI.getItemsOfCategory(currentCategory);
+        cbItem.removeAllItems();
+        //now the list needs to be populated
+        for(int i =0; i<tempItems.size();i++){
+            cbItem.addItem(tempItems.get(i));
+        }
+        
     }
 }
