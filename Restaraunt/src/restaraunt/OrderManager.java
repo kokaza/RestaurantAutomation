@@ -21,12 +21,17 @@ public class OrderManager {
     
     public OrderManager(){
         
-        orderCount= 1;
+        this.orderList = new ArrayList<>();
+        this.orderQueue = new OrderQueue();
+        this.menuHandler = new MenuHandler();
+        this.orderCount= 1;
     }
     
     public void createOrder(int tableID){
         Order order = new Order(tableID, orderCount);
         orderCount++;
+        setCurrentOrder(order);
+        addOrderToList(order);
     }
     
     public void addOrderToList(Order order){

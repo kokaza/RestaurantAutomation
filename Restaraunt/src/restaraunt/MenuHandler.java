@@ -5,10 +5,74 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tejgi_000
  */
 public class MenuHandler {
+    
+    private int currentItemID;
+    private String currentItemName;
+    private double currentItemPrice;
+    private String currentItemCategory;
+    
+    private ArrayList<MenuItem> menuItems;
+    
+    public MenuHandler(){
+        
+        this.currentItemID = -1;
+        this.currentItemName = "";
+        this.currentItemPrice = 0.0;
+        
+        menuItems = new ArrayList<>();
+        MenuItem salad = new MenuItem(1, 10.50,"Caesar Salad", "A Tasty Salad", "Soup/Salad");
+        menuItems.add(salad);
+        MenuItem steak = new MenuItem(2, 25.50, "Ribeye Steak", "A 12oz. piece of heaven", "Entrees");
+        menuItems.add(steak);
+    }
+
+    public int getCurrentItemID() {
+        return currentItemID;
+    }
+
+    public void setCurrentItemID(int currentItemID) {
+        this.currentItemID = currentItemID;
+    }
+
+    public String getCurrentItemName() {
+        return currentItemName;
+    }
+
+    public void setCurrentItemName(String currentItemName) {
+        this.currentItemName = currentItemName;
+    }
+
+    public double getCurrentItemPrice() {
+        return currentItemPrice;
+    }
+
+    public void setCurrentItemPrice(double currentItemPrice) {
+        this.currentItemPrice = currentItemPrice;
+    }
+
+    public String getCurrentItemCategory() {
+        return currentItemCategory;
+    }
+
+    public void setCurrentItemCategory(String currentItemCategory) {
+        this.currentItemCategory = currentItemCategory;
+    }
+
+    public ArrayList<MenuItem> getMenuItems() {
+        return menuItems;
+    }
+
+    public void setMenuItems(ArrayList<MenuItem> menuItems) {
+        this.menuItems = menuItems;
+    }
+    
+    
     
 }
