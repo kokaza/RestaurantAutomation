@@ -42,6 +42,7 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         cbChangeStatus = new javax.swing.JComboBox();
         btnChangeStatus = new javax.swing.JButton();
         btnSubmitOrder = new javax.swing.JButton();
+        btnCreateOrder = new javax.swing.JButton();
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +78,13 @@ public class WaiterTableScreen extends javax.swing.JPanel {
             }
         });
 
+        btnCreateOrder.setText("Create Order");
+        btnCreateOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateOrderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +102,8 @@ public class WaiterTableScreen extends javax.swing.JPanel {
                     .addComponent(btnAddItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbChangeStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnChangeStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(btnSubmitOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSubmitOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCreateOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,10 +120,12 @@ public class WaiterTableScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnChangeStatus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCreateOrder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddItem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSubmitOrder)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -152,13 +163,24 @@ public class WaiterTableScreen extends javax.swing.JPanel {
 
     private void btnSubmitOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitOrderActionPerformed
         // TODO add your handling code here:
+        btnCreateOrder.show(true);
+        btnSubmitOrder.hide();
+        waiterUI.pack();
     }//GEN-LAST:event_btnSubmitOrderActionPerformed
+
+    private void btnCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateOrderActionPerformed
+        // TODO add your handling code here:
+        btnCreateOrder.hide();
+        btnSubmitOrder.show(true);
+        waiterUI.pack();
+    }//GEN-LAST:event_btnCreateOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnChangeStatus;
+    private javax.swing.JButton btnCreateOrder;
     private javax.swing.JButton btnSubmitOrder;
     private javax.swing.JComboBox cbChangeStatus;
     private javax.swing.JPanel jPanel1;
@@ -170,10 +192,11 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         cbChangeStatus.addItem("OPEN");
         cbChangeStatus.addItem("OCCUPIED");
         cbChangeStatus.addItem("DIRTY");
-        cbChangeStatus.setSelectedItem("OPEN");
+        cbChangeStatus.setSelectedItem(waiterUI.getTable(tableID).getStatus());
         System.out.println("TableID: "+ tableID);
         System.out.println(waiterUI.getTable(tableID));
         lblStatus.setText(waiterUI.getTable(tableID).getStatus());
+        btnSubmitOrder.hide();
     }
     
     public void updateTableStatus(){

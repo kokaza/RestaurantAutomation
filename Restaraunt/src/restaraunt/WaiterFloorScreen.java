@@ -168,38 +168,47 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
 
     private void btnTable2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable2ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(2);
     }//GEN-LAST:event_btnTable2ActionPerformed
 
     private void btnTable3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable3ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(3);
     }//GEN-LAST:event_btnTable3ActionPerformed
 
     private void btnTable4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable4ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(4);
     }//GEN-LAST:event_btnTable4ActionPerformed
 
     private void btnTable5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable5ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(5);
     }//GEN-LAST:event_btnTable5ActionPerformed
 
     private void btnTable6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable6ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(6);
     }//GEN-LAST:event_btnTable6ActionPerformed
 
     private void btnTable7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable7ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(7);
     }//GEN-LAST:event_btnTable7ActionPerformed
 
     private void btnTable8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable8ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(8);
     }//GEN-LAST:event_btnTable8ActionPerformed
 
     private void btnTable9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable9ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(9);
     }//GEN-LAST:event_btnTable9ActionPerformed
 
     private void btnTable10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable10ActionPerformed
         // TODO add your handling code here:
+        waiterUI.showTableScreen(10);
     }//GEN-LAST:event_btnTable10ActionPerformed
 
     public void showTableScreen(){
