@@ -46,10 +46,11 @@ public class RestaurantController {
         
     }
     
+    //probably not needed
     public void refreshScreen(){
         
     }
-    
+    //probably not needed
     public void refreshTableScreen(){
         
     }
