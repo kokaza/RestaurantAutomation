@@ -5,6 +5,8 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tejgi_000
@@ -116,4 +118,13 @@ public class WaiterUI extends javax.swing.JFrame {
        setContentPane(currentTableScreen);
        pack();
    }
+   
+   public void getMenuCategories(){
+       this.controller.getMenuCategories();
+   }
+
+    public RestaurantController getController() {
+        return controller;
+    }
+   
 }

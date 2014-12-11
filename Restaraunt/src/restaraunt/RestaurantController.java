@@ -5,6 +5,8 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tejgi_000
@@ -82,4 +84,13 @@ public class RestaurantController {
         
         return tableManager.getTable(tableID);
     }
+    
+    public ArrayList<String> getMenuCategories(){
+        return orderManager.getMenuCategories();
+    }
+
+    public OrderManager getOrderManager() {
+        return orderManager;
+    }
+    
 }

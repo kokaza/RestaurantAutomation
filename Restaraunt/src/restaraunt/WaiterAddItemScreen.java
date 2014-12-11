@@ -5,6 +5,8 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tejgi_000
@@ -18,6 +20,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
     public WaiterAddItemScreen(WaiterUI waiterUI) {
         this.waiterUI = waiterUI;
         initComponents();
+        initCategories();
     }
 
     /**
@@ -181,4 +184,12 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
     private javax.swing.JLabel lblSubtotalValue;
     private javax.swing.JLabel lblpromptItem;
     // End of variables declaration//GEN-END:variables
+
+    public void initCategories() {
+        waiterUI.getController();
+        waiterUI.getController().getOrderManager();
+        waiterUI.getController().getOrderManager().getMenuHandler();
+        waiterUI.getController().getOrderManager().getMenuHandler().getMenuCategories();
+        cbCategory.removeAllItems();
+    }
 }

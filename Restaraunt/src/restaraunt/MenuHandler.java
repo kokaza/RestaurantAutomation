@@ -18,7 +18,9 @@ public class MenuHandler {
     private double currentItemPrice;
     private String currentItemCategory;
     
+    private ArrayList<String> menuCategories;
     private ArrayList<MenuItem> menuItems;
+    
     
     public MenuHandler(){
         
@@ -26,7 +28,12 @@ public class MenuHandler {
         this.currentItemName = "";
         this.currentItemPrice = 0.0;
         
-        menuItems = new ArrayList<>();
+        menuCategories = new ArrayList<String>();
+        menuCategories.add("Soup/Salad");
+        menuCategories.add("Entrees");
+        menuCategories.add("Drinks");
+        
+        menuItems = new ArrayList<MenuItem>();
         MenuItem salad = new MenuItem(1, 10.50,"Caesar Salad", "A Tasty Salad", "Soup/Salad");
         menuItems.add(salad);
         MenuItem steak = new MenuItem(2, 25.50, "Ribeye Steak", "A 12oz. piece of heaven", "Entrees");
@@ -71,6 +78,14 @@ public class MenuHandler {
 
     public void setMenuItems(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
+    }
+
+    public ArrayList<String> getMenuCategories() {
+        return menuCategories;
+    }
+
+    public void setMenuCategories(ArrayList<String> menuCategories) {
+        this.menuCategories = menuCategories;
     }
     
     

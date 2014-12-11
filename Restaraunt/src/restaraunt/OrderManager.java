@@ -21,7 +21,7 @@ public class OrderManager {
     
     public OrderManager(){
         
-        this.orderList = new ArrayList<>();
+        this.orderList = new ArrayList<Order>();
         this.orderQueue = new OrderQueue();
         this.menuHandler = new MenuHandler();
         this.orderCount= 1;
@@ -60,6 +60,14 @@ public class OrderManager {
     
     public void assignDetails(){
         
+    }
+    
+    public ArrayList<String> getMenuCategories(){
+        return menuHandler.getMenuCategories();
+    }
+
+    public MenuHandler getMenuHandler() {
+        return menuHandler;
     }
     
 }
