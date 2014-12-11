@@ -150,4 +150,15 @@ public class WaiterUI extends javax.swing.JFrame {
         restaurantController.updateTableStatus(tableID, status);
     }
    
+    public void createOrder(){
+        restaurantController.createOrder();
+    }
+    
+    public void addItemToOrder(String name, String category, int quantity){
+        restaurantController.addItemToOrder(name, category, quantity);
+    }
+    
+    public void submitOrder(){
+        restaurantController.submitOrder();
+    }
 }

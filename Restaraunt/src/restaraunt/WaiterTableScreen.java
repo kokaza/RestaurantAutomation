@@ -163,6 +163,7 @@ public class WaiterTableScreen extends javax.swing.JPanel {
 
     private void btnSubmitOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitOrderActionPerformed
         // TODO add your handling code here:
+        waiterUI.submitOrder();
         btnCreateOrder.show(true);
         btnSubmitOrder.hide();
         waiterUI.pack();
@@ -170,7 +171,9 @@ public class WaiterTableScreen extends javax.swing.JPanel {
 
     private void btnCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateOrderActionPerformed
         // TODO add your handling code here:
+        waiterUI.createOrder();
         btnCreateOrder.hide();
+        btnAddItem.show(true);
         btnSubmitOrder.show(true);
         waiterUI.pack();
     }//GEN-LAST:event_btnCreateOrderActionPerformed
@@ -196,6 +199,9 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         System.out.println("TableID: "+ tableID);
         System.out.println(waiterUI.getTable(tableID));
         lblStatus.setText(waiterUI.getTable(tableID).getStatus());
+        
+    //hide buttons that cannot be used
+        btnAddItem.hide();
         btnSubmitOrder.hide();
     }
     

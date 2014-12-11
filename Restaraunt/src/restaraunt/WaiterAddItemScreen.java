@@ -162,8 +162,12 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
 
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
         // TODO add your handling code here:
+        String name = cbItem.getSelectedItem().toString();
+        String category = cbCategory.getSelectedItem().toString();
+        int quantity = cbQuantity.getSelectedIndex()+1;
         
-
+        System.out.println(""+quantity+" of "+ name +" from "+ category);
+        waiterUI.addItemToOrder(name,category,quantity);
         //waiterUI.AddItem();
         waiterUI.showCurrentTableScreen();
         
@@ -232,7 +236,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
     public void initItems(){
         if(cbCategory.getSelectedItem()!=null){
             String currentCategory = cbCategory.getSelectedItem().toString();
-            System.out.println(currentCategory);
+            //System.out.println(currentCategory);
             ArrayList<MenuItem> tempItems = waiterUI.getItemsOfCategory(currentCategory);
             cbItem.removeAllItems();
             //now the list needs to be populated
@@ -254,7 +258,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
             MenuItem item =(MenuItem)cbItem.getSelectedItem();
             double price = item.getMenuItemPrice();
             //System.out.println(cbQuantity.getSelectedItem().getClass());
-            System.out.println(cbQuantity.getSelectedIndex()+1);
+            //System.out.println(cbQuantity.getSelectedIndex()+1);
             int quantity = cbQuantity.getSelectedIndex()+1;
             double total = price*quantity;
             lblSubtotalValue.setText(Double.toString(total));

@@ -34,6 +34,7 @@ public class RestaurantController {
     
     public void createOrder(){
         currentOrderID = orderManager.createOrder(currentTableID);
+        System.out.println("Order Created with order ID: "+currentOrderID);
     }
     
     public void submitOrderToSystem(){
@@ -57,12 +58,12 @@ public class RestaurantController {
         
     }
     
-    public void selectAddItem(){
-        //use current table
+    public void addItemToOrder(String name, String category, int quantity){
+        orderManager.addItemToOrder(currentOrderID, name, category, quantity);
     }
     
     public void submitOrder(){
-        
+        System.out.println("Order "+ currentOrderID +" was submitted to the kitchen");
     }
     
     public void submitStatusUpdate(){

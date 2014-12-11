@@ -30,6 +30,7 @@ public class Order {
     
     public void addLineItemToList(OrderLineItem item){
         orderLineItemList.add(item);
+        currentOrderLineItem = item;
     }
     
     public void assignCategoryToCurrentItem(String category){
@@ -40,9 +41,9 @@ public class Order {
         currentOrderLineItem.setItemID(itemID);
     }
     
-    public OrderLineItem createOrderLineItem(){
-        return new OrderLineItem();
-    }
+//    public OrderLineItem createOrderLineItem(){
+//        return new OrderLineItem();
+//    }
     
     //TODO: Duplicate of assignCategoryToCurrentItem()
     public void inputCategoryToCurrentItem(String category){

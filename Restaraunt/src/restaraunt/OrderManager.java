@@ -19,6 +19,7 @@ public class OrderManager {
     private Order currentOrder;
     //this keeps track of the number of orders so that orderIDs can be assigned
     private int orderCount;
+    private int orderLineItemCount;
     
     public OrderManager(){
         
@@ -26,6 +27,7 @@ public class OrderManager {
         this.orderQueue = new OrderQueue();
         this.menuHandler = new MenuHandler();
         this.orderCount= 1;
+        this.orderLineItemCount = 1;
     }
     
     public int createOrder(int tableID){
@@ -75,5 +77,11 @@ public class OrderManager {
         ArrayList<MenuItem> temp = new ArrayList<>();
         temp = this.menuHandler.getItemsOfCategory(category);
         return temp;
+    }
+    
+    public void addItemToOrder(int id, String name, String category, int quantity){
+        OrderLineItem orderLineItem = new OrderLineItem(orderLineItemCount, name, category, quantity);
+        currentOrder.addLineItemToList(orderLineItem);
+        orderLineItemCount++;
     }
 }

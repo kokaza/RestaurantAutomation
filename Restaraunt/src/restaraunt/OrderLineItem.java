@@ -13,11 +13,16 @@ public class OrderLineItem {
     
     private String category;
     private int itemID;
+    private String name;
     private String itemDetails;
     private int quantity;
     
-    public OrderLineItem(){
-        
+    public OrderLineItem(int id,String name, String category, int quantity){
+        this.itemID = id;
+        this.name = name;
+        this.category = category;
+        this.quantity = quantity;
+        this.itemDetails = "NA";
     }
 
     public String getCategory() {
