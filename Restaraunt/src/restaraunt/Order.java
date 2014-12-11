@@ -29,34 +29,52 @@ public class Order {
     }
     
     public void addLineItemToList(OrderLineItem item){
-        
+        orderLineItemList.add(item);
     }
     
-    public void assignCategoryToCurrentItem(){
-        
+    public void assignCategoryToCurrentItem(String category){
+        currentOrderLineItem.setCategory(category);
     }
     
     public void assignItemID(int itemID){
-        
+        currentOrderLineItem.setItemID(itemID);
     }
     
-    public void createOrderLineItem(){
-        
+    public OrderLineItem createOrderLineItem(){
+        return new OrderLineItem();
     }
     
-    public void inputCategoryToCurrentItem(){
-        
+    //TODO: Duplicate of assignCategoryToCurrentItem()
+    public void inputCategoryToCurrentItem(String category){
+        assignCategoryToCurrentItem(category);
     }
     
     public void setCurrentLineItem(OrderLineItem orderLineItem){
-        
+        this.currentOrderLineItem = orderLineItem;
     }
     
     public void setStatus(String status){
-        
+        this.status = status;
     }
     
     public void assignDetails(String details){
-        
+        currentOrderLineItem.setItemDetails(details);
+    }
+    
+    public void assignQuantity(int quantity) {
+        currentOrderLineItem.setQuantity(quantity);
+    }
+
+    public ArrayList<OrderLineItem> getOrderLineItemList() {
+        return orderLineItemList;
+    }
+
+    public void setOrderLineItemList(ArrayList<OrderLineItem> orderLineItemList) {
+        this.orderLineItemList = orderLineItemList;
+    }
+    
+    @Override
+    public String toString() {
+        return status + "(Table " + tableID + ") (Order " + orderID + ")";
     }
 }

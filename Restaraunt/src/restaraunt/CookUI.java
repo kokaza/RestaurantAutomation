@@ -5,17 +5,28 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tejgi_000
  */
 public class CookUI extends javax.swing.JFrame {
 
+    private RestaurantController controller;
+    private CookOrderQueueScreen orderQueueScreen;
+    private CookOrderDetailsScreen orderDetailsScreen;
+    
     /**
      * Creates new form CookUI
      */
-    public CookUI() {
-        initComponents();
+    public CookUI(RestaurantController controller) {
+        //initComponents();
+        orderQueueScreen = new CookOrderQueueScreen(new ArrayList<Order>(), this);
+        orderDetailsScreen = new CookOrderDetailsScreen(new Order(0,0), this);
+        this.controller = controller;
+        setContentPane(orderQueueScreen);
+        pack();
     }
 
     /**
@@ -27,58 +38,50 @@ public class CookUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelCookHome = new javax.swing.JPanel();
 
-        jLabel1.setText("This is the Cook's UI");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout panelCookHomeLayout = new javax.swing.GroupLayout(panelCookHome);
+        panelCookHome.setLayout(panelCookHomeLayout);
+        panelCookHomeLayout.setHorizontalGroup(
+            panelCookHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 384, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(253, Short.MAX_VALUE))
+        panelCookHomeLayout.setVerticalGroup(
+            panelCookHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 282, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelCookHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelCookHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelCookHome;
     // End of variables declaration//GEN-END:variables
+
+    public void showOrderQueueScreen() {
+        setContentPane(orderQueueScreen);
+        pack();
+    }
+
+    public void showOrderDetailsScreen() {
+        setContentPane(orderDetailsScreen);
+        pack();
+    }
 }
