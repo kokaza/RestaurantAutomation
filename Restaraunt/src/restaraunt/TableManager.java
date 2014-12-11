@@ -24,7 +24,6 @@ public class TableManager {
             tableList.add(temp);
             //System.out.println(temp.toString());
         }
-        tableList.get(4).setTableStatus("DIRTY");
         currentTable = null;
     }
     
@@ -46,5 +45,14 @@ public class TableManager {
             }
         }
         return null;
+    }
+    
+    public void updateTableStatus(int tableID, String status){
+        for(int i =0;i<tableList.size();i++){
+            if(tableList.get(i).getTableID()== tableID){
+                tableList.get(i).setTableStatus(status);
+                break;
+            }
+        }
     }
 }

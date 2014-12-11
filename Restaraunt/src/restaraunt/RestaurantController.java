@@ -105,4 +105,8 @@ public class RestaurantController {
     public void setCurrentTableID(int tableID){
         this.currentTableID = tableID;
     }
+    
+    public void updateTableStatus(int tableID, String status){
+        tableManager.updateTableStatus(tableID, status);
+    }
 }

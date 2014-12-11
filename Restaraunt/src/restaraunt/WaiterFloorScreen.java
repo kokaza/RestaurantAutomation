@@ -163,8 +163,6 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
 
     private void btnTable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTable1ActionPerformed
         // TODO add your handling code here:
-        TableButton tablebutton = (TableButton)evt.getSource();
-       // waiterUI.showTableScreen(tablebutton.getTableID());
        waiterUI.showTableScreen(1);
     }//GEN-LAST:event_btnTable1ActionPerformed
 
@@ -222,13 +220,13 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
     private restaraunt.TableButton btnTable9;
     // End of variables declaration//GEN-END:variables
 
-    private void initTableButtons() {
+    public void initTableButtons() {
         
         Table table = new Table();
         //System.out.println(table.getStatus());
         table = waiterUI.getTable(1);
         btnTable1.setTable(table);
-        System.out.println(table);
+        System.out.println("Table ID: "+table.getTableID());
         btnTable1.changeColor();
         
         table = waiterUI.getTable(2);
@@ -268,4 +266,5 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
         btnTable10.changeColor();
         
     }
+    
 }

@@ -98,6 +98,7 @@ public class WaiterUI extends javax.swing.JFrame {
    public void showTableScreen(int tableID){
        restaurantController.setCurrentTableID(tableID);
        WaiterTableScreen tableScreen = new WaiterTableScreen(tableID,this);
+       System.out.println("Blah: "+tableID);
        currentTableScreen = tableScreen;
        setContentPane(currentTableScreen);
        pack();
@@ -109,6 +110,7 @@ public class WaiterUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
    public void showFloorScreen() {
+       floorScreen.initTableButtons();
         setContentPane(floorScreen);
         pack();
     }
@@ -142,6 +144,10 @@ public class WaiterUI extends javax.swing.JFrame {
     }
     public Table getTable(int id){
         return restaurantController.getTable(id);
+    }
+    
+    public void updateTableStatus(int tableID, String status){
+        restaurantController.updateTableStatus(tableID, status);
     }
    
 }

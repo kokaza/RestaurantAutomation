@@ -16,10 +16,11 @@ public class WaiterTableScreen extends javax.swing.JPanel {
     /**
      * Creates new form WaiterTableScreen
      */
-    public WaiterTableScreen(int TableID, WaiterUI waiterUI) {
+    public WaiterTableScreen(int tableID, WaiterUI waiterUI) {
         
         this.waiterUI = waiterUI;
         this.tableID = tableID;
+        System.out.println("HOW: "+tableID);
         initComponents();
         initCBChangeStatus();
     }
@@ -146,6 +147,7 @@ public class WaiterTableScreen extends javax.swing.JPanel {
 
     private void btnChangeStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeStatusActionPerformed
         // TODO add your handling code here:
+        updateTableStatus();
     }//GEN-LAST:event_btnChangeStatusActionPerformed
 
     private void btnSubmitOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitOrderActionPerformed
@@ -169,8 +171,19 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         cbChangeStatus.addItem("OCCUPIED");
         cbChangeStatus.addItem("DIRTY");
         cbChangeStatus.setSelectedItem("OPEN");
+        System.out.println("TableID: "+ tableID);
+        System.out.println(waiterUI.getTable(tableID));
+        lblStatus.setText(waiterUI.getTable(tableID).getStatus());
     }
     
+    public void updateTableStatus(){
+        String status = cbChangeStatus.getSelectedItem().toString();
+        waiterUI.updateTableStatus(tableID, status);
+        System.out.println(tableID);
+        System.out.println(waiterUI.getTable(tableID));
+        lblStatus.setText(waiterUI.getTable(tableID).getStatus());
+        
+    }
     public void updateStatusLabel(){
         waiterUI.getStatusOfTable(tableID);
     }
