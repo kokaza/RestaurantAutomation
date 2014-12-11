@@ -12,12 +12,14 @@ package restaraunt;
 public class WaiterTableScreen extends javax.swing.JPanel {
 
     private WaiterUI waiterUI;
+    private int tableID;
     /**
      * Creates new form WaiterTableScreen
      */
     public WaiterTableScreen(int TableID, WaiterUI waiterUI) {
         
         this.waiterUI = waiterUI;
+        this.tableID = tableID;
         initComponents();
         initCBChangeStatus();
     }
@@ -161,13 +163,17 @@ public class WaiterTableScreen extends javax.swing.JPanel {
     private javax.swing.JLabel lblPromptStatus;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables
-public void initCBChangeStatus(){
-    cbChangeStatus.removeAllItems();
-    cbChangeStatus.addItem("OPEN");
-    cbChangeStatus.addItem("OCCUPIED");
-    cbChangeStatus.addItem("DIRTY");
-    cbChangeStatus.setSelectedItem("OPEN");
-}
+    public void initCBChangeStatus(){
+        cbChangeStatus.removeAllItems();
+        cbChangeStatus.addItem("OPEN");
+        cbChangeStatus.addItem("OCCUPIED");
+        cbChangeStatus.addItem("DIRTY");
+        cbChangeStatus.setSelectedItem("OPEN");
+    }
+    
+    public void updateStatusLabel(){
+        waiterUI.getStatusOfTable(tableID);
+    }
 }
 
 

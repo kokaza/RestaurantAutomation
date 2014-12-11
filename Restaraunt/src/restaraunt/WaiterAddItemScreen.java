@@ -22,6 +22,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         initComponents();
         initCategories();
         initItems();
+        initQuantities();
     }
 
     /**
@@ -40,7 +41,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         cbItem = new javax.swing.JComboBox();
         btnAddItem = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox();
+        cbQuantity = new javax.swing.JComboBox();
         lblPromptQuantity = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblSubtotalValue = new javax.swing.JLabel();
@@ -50,6 +51,11 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         lblPromptCategory.setText("Choose Category");
 
         cbCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbCategoryItemStateChanged(evt);
+            }
+        });
         cbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCategoryActionPerformed(evt);
@@ -59,6 +65,11 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         lblpromptItem.setText("Choose Item");
 
         cbItem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbItem.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbItemItemStateChanged(evt);
+            }
+        });
         cbItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbItemActionPerformed(evt);
@@ -79,10 +90,15 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        cbQuantity.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbQuantity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbQuantityMouseClicked(evt);
+            }
+        });
+        cbQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                cbQuantityActionPerformed(evt);
             }
         });
 
@@ -112,7 +128,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
                     .addComponent(lblpromptItem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbItem, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPromptQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -133,7 +149,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPromptQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,15 +177,33 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
 
     private void cbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoryActionPerformed
         // TODO add your handling code here:
+        //initItems();
     }//GEN-LAST:event_cbCategoryActionPerformed
 
     private void cbItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbItemActionPerformed
         // TODO add your handling code here:
+        updateSubtotal();
     }//GEN-LAST:event_cbItemActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void cbQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbQuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+        updateSubtotal();
+    }//GEN-LAST:event_cbQuantityActionPerformed
+
+    private void cbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCategoryItemStateChanged
+        // TODO add your handling code here:
+        initItems();
+    }//GEN-LAST:event_cbCategoryItemStateChanged
+
+    private void cbItemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbItemItemStateChanged
+        // TODO add your handling code here:
+        //updateSubtotal();
+    }//GEN-LAST:event_cbItemItemStateChanged
+
+    private void cbQuantityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbQuantityMouseClicked
+        // TODO add your handling code here:
+        //updateSubtotal();
+    }//GEN-LAST:event_cbQuantityMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -177,7 +211,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox cbCategory;
     private javax.swing.JComboBox cbItem;
-    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox cbQuantity;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblAddItemTitle;
     private javax.swing.JLabel lblPromptCategory;
@@ -196,13 +230,34 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
     }
     //this populates the items combobox with items from the chosen category
     public void initItems(){
-        String currentCategory = cbCategory.getSelectedItem().toString();
-        System.out.println(currentCategory);
-        ArrayList<MenuItem> tempItems = waiterUI.getItemsOfCategory(currentCategory);
-        cbItem.removeAllItems();
-        //now the list needs to be populated
-        for(int i =0; i<tempItems.size();i++){
-            cbItem.addItem(tempItems.get(i));
+        if(cbCategory.getSelectedItem()!=null){
+            String currentCategory = cbCategory.getSelectedItem().toString();
+            System.out.println(currentCategory);
+            ArrayList<MenuItem> tempItems = waiterUI.getItemsOfCategory(currentCategory);
+            cbItem.removeAllItems();
+            //now the list needs to be populated
+            for(int i =0; i<tempItems.size();i++){
+                cbItem.addItem(tempItems.get(i));
+            }
+        }
+    }
+    
+    public void initQuantities(){
+        cbQuantity.removeAllItems();
+        for(int i =1;i<11;i++){
+            cbQuantity.addItem(i);
+        }
+    }
+    
+    public void updateSubtotal(){
+        if(cbItem.getSelectedItem()!=null){
+            MenuItem item =(MenuItem)cbItem.getSelectedItem();
+            double price = item.getMenuItemPrice();
+            //System.out.println(cbQuantity.getSelectedItem().getClass());
+            System.out.println(cbQuantity.getSelectedIndex()+1);
+            int quantity = cbQuantity.getSelectedIndex()+1;
+            double total = price*quantity;
+            lblSubtotalValue.setText(Double.toString(total));
         }
         
     }

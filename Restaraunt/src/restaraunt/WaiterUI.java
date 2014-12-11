@@ -135,5 +135,9 @@ public class WaiterUI extends javax.swing.JFrame {
         temp = this.restaurantController.getItemsOfCategory(category);
         return temp;
     }
+    
+    public int getStatusOfTable(int tableID){
+        return 0;
+    }
    
 }

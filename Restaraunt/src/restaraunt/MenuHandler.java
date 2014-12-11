@@ -38,6 +38,8 @@ public class MenuHandler {
         menuItems.add(salad);
         MenuItem steak = new MenuItem(2, 25.50, "Ribeye Steak", "A 12oz. piece of heaven", "Entrees");
         menuItems.add(steak);
+        MenuItem lemonade = new MenuItem(3, 3.25, "Lemonade", "Freshly Squeezed Lemonade", "Drinks");
+        menuItems.add(lemonade);
     }
 
     public int getCurrentItemID() {
