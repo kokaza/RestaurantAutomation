@@ -37,30 +37,30 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
 
         orderDetailsLabel = new javax.swing.JLabel();
         orderDetailsScrollPane = new javax.swing.JScrollPane();
-        orderDetailsList = new javax.swing.JList();
-        backButton = new javax.swing.JButton();
-        backButton1 = new javax.swing.JButton();
+        listOrderDetails = new javax.swing.JList();
+        btnBack = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
 
         orderDetailsLabel.setText("Order Details");
 
-        orderDetailsList.setModel(new javax.swing.AbstractListModel() {
+        listOrderDetails.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        orderDetailsScrollPane.setViewportView(orderDetailsList);
+        orderDetailsScrollPane.setViewportView(listOrderDetails);
 
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
-        backButton1.setText("Confirm");
-        backButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButton1ActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
 
@@ -77,9 +77,9 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
                         .addGap(0, 300, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(backButton1)
+                        .addComponent(btnConfirm)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backButton)))
+                        .addComponent(btnBack)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,26 +91,28 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
                 .addComponent(orderDetailsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton)
-                    .addComponent(backButton1))
+                    .addComponent(btnBack)
+                    .addComponent(btnConfirm))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         cookUI.showOrderQueueScreen();
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_backButton1ActionPerformed
+        currentOrder.setStatus("CONFIRMED");
+        cookUI.showOrderQueueScreen();
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
-    private javax.swing.JButton backButton1;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConfirm;
+    private javax.swing.JList listOrderDetails;
     private javax.swing.JLabel orderDetailsLabel;
-    private javax.swing.JList orderDetailsList;
     private javax.swing.JScrollPane orderDetailsScrollPane;
     // End of variables declaration//GEN-END:variables
 
@@ -125,13 +127,17 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
         for (OrderLineItem orderLineItem : order.getOrderLineItemList()) {
             listModel.addElement(orderLineItem.toString());
         }
-        orderDetailsList.setModel(listModel);
+        listOrderDetails.setModel(listModel);
         cookUI.pack();
     }
     
-    public void populateOrderQueue(){
+    public void populateOrderDetails(){
         DefaultListModel<OrderLineItem> listModel;
-        ArrayList<OrderLineItem> temp = cookUI.getOrderLineItemList(currentOrder.getOrderID());
-        
+        listModel = new DefaultListModel<OrderLineItem>();
+        ArrayList<OrderLineItem> temp = currentOrder.getOrderLineItemList();
+        for(int i = 0;i< temp.size();i++){
+            listModel.addElement(temp.get(i));
+        }
+        listOrderDetails.setModel(listModel);
     }
 }

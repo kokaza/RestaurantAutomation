@@ -36,23 +36,23 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         orderQueueScrollPane = new javax.swing.JScrollPane();
-        orderQueueList = new javax.swing.JList();
+        listOrderQueue = new javax.swing.JList();
         orderQueueLabel = new javax.swing.JLabel();
-        orderDetailsButton = new javax.swing.JButton();
+        btnOrderDetails = new javax.swing.JButton();
 
-        orderQueueList.setModel(new javax.swing.AbstractListModel() {
+        listOrderQueue.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        orderQueueScrollPane.setViewportView(orderQueueList);
+        orderQueueScrollPane.setViewportView(listOrderQueue);
 
         orderQueueLabel.setText("Order Queue");
 
-        orderDetailsButton.setText("Order Details");
-        orderDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+        btnOrderDetails.setText("Order Details");
+        btnOrderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderDetailsButtonActionPerformed(evt);
+                btnOrderDetailsActionPerformed(evt);
             }
         });
 
@@ -69,7 +69,7 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 269, Short.MAX_VALUE)
-                        .addComponent(orderDetailsButton)))
+                        .addComponent(btnOrderDetails)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -80,20 +80,22 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orderQueueScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(orderDetailsButton)
+                .addComponent(btnOrderDetails)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void orderDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderDetailsButtonActionPerformed
-       cookUI.showOrderDetailsScreen();
-    }//GEN-LAST:event_orderDetailsButtonActionPerformed
+    private void btnOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailsActionPerformed
+        
+        Order temp = (Order)listOrderQueue.getSelectedValue();
+        cookUI.showOrderDetailsScreen(temp);
+    }//GEN-LAST:event_btnOrderDetailsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton orderDetailsButton;
+    private javax.swing.JButton btnOrderDetails;
+    private javax.swing.JList listOrderQueue;
     private javax.swing.JLabel orderQueueLabel;
-    private javax.swing.JList orderQueueList;
     private javax.swing.JScrollPane orderQueueScrollPane;
     // End of variables declaration//GEN-END:variables
 
@@ -108,7 +110,7 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
         for (Order order : orders) {
             listModel.addElement(order.toString());
         }
-        orderQueueList.setModel(listModel);
+        listOrderQueue.setModel(listModel);
     }
     
     public void populateOrderQueueScreen(){
@@ -122,6 +124,6 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
             listModel.addElement(temp.get(i));
         }
         
-        orderQueueList.setModel(listModel);
+        listOrderQueue.setModel(listModel);
     }
 }

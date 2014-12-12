@@ -76,14 +76,14 @@ public class CookUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void showOrderQueueScreen() {
+        orderQueueScreen.populateOrderQueueScreen();
         setContentPane(orderQueueScreen);
         pack();
     }
 
-    public void showOrderDetailsScreen() {
+    public void showOrderDetailsScreen(Order order) {
         
-        Order chosenOrder = null;
-        
+        Order chosenOrder = order;
         orderDetailsScreen = new CookOrderDetailsScreen(chosenOrder, this);
         setContentPane(orderDetailsScreen);
         pack();

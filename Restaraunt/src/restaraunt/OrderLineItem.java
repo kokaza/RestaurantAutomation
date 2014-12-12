@@ -60,7 +60,7 @@ public class OrderLineItem {
     @Override
     public String toString() {
         //TODO: Verify that this is what we want the summary to look like
-        return itemDetails + " " + quantity;
+        return name+" : "+quantity;
     }
     
     public String getItemName(){
