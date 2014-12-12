@@ -62,4 +62,8 @@ public class OrderLineItem {
         //TODO: Verify that this is what we want the summary to look like
         return itemDetails + " " + quantity;
     }
+    
+    public String getItemName(){
+        return name; 
+    }
 }

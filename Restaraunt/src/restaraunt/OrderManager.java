@@ -39,7 +39,7 @@ public class OrderManager {
     }
     
     public void addOrderToList(Order order){
-        
+        orderList.add(order);
     }
     
     public void assignCategoryToCurrentItem(String category){
@@ -54,8 +54,8 @@ public class OrderManager {
         currentOrder = order;
     }
     
-    public void submitCurrentOrder(){
-        
+    public void submitOrderToSystem(int orderID){
+        orderQueue.addOrderToQueue(orderID);
     }
     
     public void updateOrderStatus(Order order){
@@ -83,5 +83,14 @@ public class OrderManager {
         OrderLineItem orderLineItem = new OrderLineItem(orderLineItemCount, name, category, quantity);
         currentOrder.addLineItemToList(orderLineItem);
         orderLineItemCount++;
+    }
+    
+    public Order getOrder(int orderID){
+        for(int i =0; i< orderList.size();i++){
+            if(orderList.get(i).getOrderID() == orderID){
+                return orderList.get(i);
+            }
+        }
+        return null;
     }
 }

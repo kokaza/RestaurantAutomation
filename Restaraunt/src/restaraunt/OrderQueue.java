@@ -14,4 +14,14 @@ import java.util.ArrayList;
 public class OrderQueue {
     
     private ArrayList<Integer> orderIDList;
+    
+    public OrderQueue(){
+        
+        orderIDList = new ArrayList<>();
+    }
+    
+    public void addOrderToQueue(int orderID){
+        orderIDList.add(orderID);
+        System.out.println("Order "+orderID+" added to the order queue");
+    }
 }

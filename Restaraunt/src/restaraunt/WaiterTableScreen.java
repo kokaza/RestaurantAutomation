@@ -165,6 +165,7 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
         waiterUI.submitOrder();
         btnCreateOrder.show(true);
+        btnAddItem.hide();
         btnSubmitOrder.hide();
         waiterUI.pack();
     }//GEN-LAST:event_btnSubmitOrderActionPerformed
@@ -196,8 +197,8 @@ public class WaiterTableScreen extends javax.swing.JPanel {
         cbChangeStatus.addItem("OCCUPIED");
         cbChangeStatus.addItem("DIRTY");
         cbChangeStatus.setSelectedItem(waiterUI.getTable(tableID).getStatus());
-        System.out.println("TableID: "+ tableID);
-        System.out.println(waiterUI.getTable(tableID));
+        //System.out.println("TableID: "+ tableID);
+        //System.out.println(waiterUI.getTable(tableID));
         lblStatus.setText(waiterUI.getTable(tableID).getStatus());
         
     //hide buttons that cannot be used
@@ -208,8 +209,8 @@ public class WaiterTableScreen extends javax.swing.JPanel {
     public void updateTableStatus(){
         String status = cbChangeStatus.getSelectedItem().toString();
         waiterUI.updateTableStatus(tableID, status);
-        System.out.println(tableID);
-        System.out.println(waiterUI.getTable(tableID));
+        //System.out.println(tableID);
+        //System.out.println(waiterUI.getTable(tableID));
         lblStatus.setText(waiterUI.getTable(tableID).getStatus());
         
     }

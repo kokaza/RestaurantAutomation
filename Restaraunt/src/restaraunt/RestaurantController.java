@@ -37,10 +37,7 @@ public class RestaurantController {
         System.out.println("Order Created with order ID: "+currentOrderID);
     }
     
-    public void submitOrderToSystem(){
-        
-    }
-    
+
     public void acknowledgeOrder(){
         
     }
@@ -64,6 +61,12 @@ public class RestaurantController {
     
     public void submitOrder(){
         System.out.println("Order "+ currentOrderID +" was submitted to the kitchen");
+        Order order = orderManager.getOrder(currentOrderID);
+        order.printItems();
+        orderManager.submitOrderToSystem(currentOrderID);
+        //System.out.println(order.toString());
+        
+        
     }
     
     public void submitStatusUpdate(){

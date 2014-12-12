@@ -98,7 +98,7 @@ public class WaiterUI extends javax.swing.JFrame {
    public void showTableScreen(int tableID){
        restaurantController.setCurrentTableID(tableID);
        WaiterTableScreen tableScreen = new WaiterTableScreen(tableID,this);
-       System.out.println("Blah: "+tableID);
+       //System.out.println("Blah: "+tableID);
        currentTableScreen = tableScreen;
        setContentPane(currentTableScreen);
        pack();

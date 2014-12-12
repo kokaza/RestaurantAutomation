@@ -82,4 +82,12 @@ public class Order {
     public int getOrderID(){
         return orderID;
     }
+    
+    public void printItems(){
+        for(int i =0;i < orderLineItemList.size();i++){
+            System.out.println(orderLineItemList.get(i).getItemName());
+        }
+    }
+    
+    
 }

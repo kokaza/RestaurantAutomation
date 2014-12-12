@@ -166,7 +166,7 @@ public class WaiterAddItemScreen extends javax.swing.JPanel {
         String category = cbCategory.getSelectedItem().toString();
         int quantity = cbQuantity.getSelectedIndex()+1;
         
-        System.out.println(""+quantity+" of "+ name +" from "+ category);
+        System.out.println(""+quantity+" of "+ name +" from "+ category+" added to order");
         waiterUI.addItemToOrder(name,category,quantity);
         //waiterUI.AddItem();
         waiterUI.showCurrentTableScreen();

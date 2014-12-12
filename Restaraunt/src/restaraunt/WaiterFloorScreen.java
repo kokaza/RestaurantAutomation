@@ -235,7 +235,7 @@ public class WaiterFloorScreen extends javax.swing.JPanel {
         //System.out.println(table.getStatus());
         table = waiterUI.getTable(1);
         btnTable1.setTable(table);
-        System.out.println("Table ID: "+table.getTableID());
+        //System.out.println("Table ID: "+table.getTableID());
         btnTable1.changeColor();
         
         table = waiterUI.getTable(2);
