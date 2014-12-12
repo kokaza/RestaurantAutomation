@@ -121,6 +121,7 @@ public class WaiterUI extends javax.swing.JFrame {
     }
    
    public void showCurrentTableScreen(){
+       currentTableScreen.populateOrderList();
        setContentPane(currentTableScreen);
        pack();
    }
@@ -160,5 +161,13 @@ public class WaiterUI extends javax.swing.JFrame {
     
     public void submitOrder(){
         restaurantController.submitOrder();
+    }
+    
+    public ArrayList<Order> getOrderList(){
+        return restaurantController.getOrderList();
+    }
+    
+    public void populateOrderList(){
+        currentTableScreen.populateOrderList();
     }
 }

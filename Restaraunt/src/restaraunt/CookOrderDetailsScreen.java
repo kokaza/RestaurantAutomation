@@ -104,6 +104,7 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         currentOrder.setStatus("CONFIRMED");
+        cookUI.populateOrderList();
         cookUI.showOrderQueueScreen();
     }//GEN-LAST:event_btnConfirmActionPerformed
 

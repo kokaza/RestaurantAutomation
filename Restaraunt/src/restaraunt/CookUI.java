@@ -100,4 +100,8 @@ public class CookUI extends javax.swing.JFrame {
     public ArrayList<Order> getOrderList(){
         return controller.getOrderList();
     }
+    
+    public void populateOrderList(){
+        controller.populateOrderList();
+    }
 }

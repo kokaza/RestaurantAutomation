@@ -119,6 +119,9 @@ public class RestaurantController {
     public void populateOrderQueue(){
         cookUI.populateOrderQueueScreen();
     }
+    public void populateOrderList(){
+        waiterUI.populateOrderList();
+    }
     
     public void setCookUI(CookUI ui){
         cookUI = ui;
