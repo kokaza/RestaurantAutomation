@@ -21,6 +21,9 @@ public class RestaurantController {
     private OrderManager orderManager;
     private TableManager tableManager;
     
+    private CookUI cookUI;
+    private WaiterUI waiterUI;
+    
     public RestaurantController(){
         
         this.currentCategory = "";
@@ -64,6 +67,7 @@ public class RestaurantController {
         Order order = orderManager.getOrder(currentOrderID);
         order.printItems();
         orderManager.submitOrderToSystem(currentOrderID);
+        populateOrderQueue();
         //System.out.println(order.toString());
         
         
@@ -73,17 +77,7 @@ public class RestaurantController {
         
     }
     
-    public void inputItem(){
-        //done in the UI
-    }
-    
-    public void refreshFloorScreen(){
-        
-    }
-    
-    public void submitViewTables(){
-        
-    }
+
     public Table getTable(int tableID){
         
         return tableManager.getTable(tableID);
@@ -112,5 +106,25 @@ public class RestaurantController {
     
     public void updateTableStatus(int tableID, String status){
         tableManager.updateTableStatus(tableID, status);
+    }
+    
+    public ArrayList<OrderLineItem> getOrderLineItemList(int orderID){
+        return orderManager.getOrderLineItemList(orderID);
+    }
+    
+    public ArrayList<Order> getOrderList(){
+        return orderManager.getOrderList();
+    }
+    
+    public void populateOrderQueue(){
+        cookUI.populateOrderQueueScreen();
+    }
+    
+    public void setCookUI(CookUI ui){
+        cookUI = ui;
+    }
+    
+    public void setWaiterUI(WaiterUI ui){
+        waiterUI = ui;
     }
 }

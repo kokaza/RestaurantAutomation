@@ -93,4 +93,18 @@ public class OrderManager {
         }
         return null;
     }
+    
+    public ArrayList<OrderLineItem> getOrderLineItemList(int orderID){
+        for(int i =0; i< orderList.size();i++){
+            if(orderList.get(i).getOrderID()==orderID){
+                
+                return orderList.get(i).getOrderLineItemList();
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList<Order> getOrderList(){
+        return orderList;
+    }
 }

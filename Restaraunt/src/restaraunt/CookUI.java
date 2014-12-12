@@ -23,7 +23,7 @@ public class CookUI extends javax.swing.JFrame {
     public CookUI(RestaurantController controller) {
         //initComponents();
         orderQueueScreen = new CookOrderQueueScreen(new ArrayList<Order>(), this);
-        orderDetailsScreen = new CookOrderDetailsScreen(new Order(0,0), this);
+        orderDetailsScreen = null;
         this.controller = controller;
         setContentPane(orderQueueScreen);
         pack();
@@ -81,7 +81,23 @@ public class CookUI extends javax.swing.JFrame {
     }
 
     public void showOrderDetailsScreen() {
+        
+        Order chosenOrder = null;
+        
+        orderDetailsScreen = new CookOrderDetailsScreen(chosenOrder, this);
         setContentPane(orderDetailsScreen);
         pack();
+    }
+    
+    public ArrayList<OrderLineItem> getOrderLineItemList(int orderID){
+        return controller.getOrderLineItemList(orderID);
+    }
+    
+    public void populateOrderQueueScreen(){
+        orderQueueScreen.populateOrderQueueScreen();
+    }
+    
+    public ArrayList<Order> getOrderList(){
+        return controller.getOrderList();
     }
 }

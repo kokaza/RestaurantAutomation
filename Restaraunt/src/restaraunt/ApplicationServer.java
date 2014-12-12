@@ -22,7 +22,9 @@ public class ApplicationServer extends javax.swing.JFrame {
         
         restaurantController = new RestaurantController();
         waiterUI = new WaiterUI(restaurantController);
+        restaurantController.setWaiterUI(waiterUI);
         cookUI = new CookUI(restaurantController);
+        restaurantController.setCookUI(cookUI);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         //initComponents();
         ApplicationServerScreen applicationServerScreen = new ApplicationServerScreen(this);

@@ -6,6 +6,8 @@
 package restaraunt;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -99,13 +101,27 @@ public class CookOrderQueueScreen extends javax.swing.JPanel {
         javax.swing.DefaultListModel<String> listModel;
         listModel = new javax.swing.DefaultListModel<>();
         
-        listModel.addElement("test 1");
-        listModel.addElement("test 2");
-        listModel.addElement("test 3");
+        //listModel.addElement("test 1");
+        //listModel.addElement("test 2");
+        //listModel.addElement("test 3");
         
         for (Order order : orders) {
             listModel.addElement(order.toString());
         }
+        orderQueueList.setModel(listModel);
+    }
+    
+    public void populateOrderQueueScreen(){
+        
+        DefaultListModel<Order> listModel;
+        listModel = new DefaultListModel<Order>();
+        
+        ArrayList<Order> temp = cookUI.getOrderList();
+        
+        for(int i =0; i < temp.size();i++){
+            listModel.addElement(temp.get(i));
+        }
+        
         orderQueueList.setModel(listModel);
     }
 }

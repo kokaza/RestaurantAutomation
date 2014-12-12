@@ -5,6 +5,9 @@
  */
 package restaraunt;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author dmhaffner
@@ -12,12 +15,13 @@ package restaraunt;
 public class CookOrderDetailsScreen extends javax.swing.JPanel {
 
     private CookUI cookUI;
-    
+    private Order currentOrder;
     /**
      * Creates new form CookOrderDetailsScreen
      */
     public CookOrderDetailsScreen(Order order, CookUI cookUI) {
         this.cookUI = cookUI;
+        this.currentOrder = order;
         initComponents();
         initOrderDetails(order);
     }
@@ -35,6 +39,7 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
         orderDetailsScrollPane = new javax.swing.JScrollPane();
         orderDetailsList = new javax.swing.JList();
         backButton = new javax.swing.JButton();
+        backButton1 = new javax.swing.JButton();
 
         orderDetailsLabel.setText("Order Details");
 
@@ -52,6 +57,13 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        backButton1.setText("Confirm");
+        backButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,6 +77,8 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
                         .addGap(0, 300, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(backButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(backButton)))
                 .addContainerGap())
         );
@@ -76,7 +90,9 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orderDetailsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(backButton1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -85,9 +101,14 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
         cookUI.showOrderQueueScreen();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JButton backButton1;
     private javax.swing.JLabel orderDetailsLabel;
     private javax.swing.JList orderDetailsList;
     private javax.swing.JScrollPane orderDetailsScrollPane;
@@ -97,13 +118,20 @@ public class CookOrderDetailsScreen extends javax.swing.JPanel {
         javax.swing.DefaultListModel<String> listModel;
         listModel = new javax.swing.DefaultListModel<>();
         
-        listModel.addElement("test 1");
-        listModel.addElement("test 2");
-        listModel.addElement("test 3");
+        //listModel.addElement("test 1");
+        //listModel.addElement("test 2");
+        //listModel.addElement("test 3");
         
         for (OrderLineItem orderLineItem : order.getOrderLineItemList()) {
             listModel.addElement(orderLineItem.toString());
         }
         orderDetailsList.setModel(listModel);
+        cookUI.pack();
+    }
+    
+    public void populateOrderQueue(){
+        DefaultListModel<OrderLineItem> listModel;
+        ArrayList<OrderLineItem> temp = cookUI.getOrderLineItemList(currentOrder.getOrderID());
+        
     }
 }
